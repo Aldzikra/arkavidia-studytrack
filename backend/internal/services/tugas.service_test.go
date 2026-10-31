@@ -37,12 +37,12 @@ func TestCategorizeDeadline(t *testing.T) {
 
 func TestSortTugas(t *testing.T) {
 	list := []models.Tugas{
-		{Id: 1, Deadline: now.Add(96 * time.Hour), Status: "belum"}, 
-		{Id: 2, Deadline: now.Add(-time.Hour), Status: "belum"},     
-		{Id: 3, Deadline: now.Add(5 * time.Hour), Status: "belum"},  
-		{Id: 4, Deadline: now.Add(-2 * time.Hour), Status: "belum"}, 
-		{Id: 5, Deadline: now.Add(time.Hour), Status: "belum"},      
-		{Id: 6, Deadline: now.Add(time.Hour), Status: "selesai"},    
+		{Id: 1, Deadline: now.Add(96 * time.Hour), Status: "belum"},
+		{Id: 2, Deadline: now.Add(-time.Hour), Status: "belum"},
+		{Id: 3, Deadline: now.Add(5 * time.Hour), Status: "belum"},
+		{Id: 4, Deadline: now.Add(-2 * time.Hour), Status: "belum"},
+		{Id: 5, Deadline: now.Add(time.Hour), Status: "belum"},
+		{Id: 6, Deadline: now.Add(time.Hour), Status: "selesai"},
 	}
 
 	SortTugas(list, now)
