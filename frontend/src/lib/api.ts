@@ -36,9 +36,16 @@ api.interceptors.response.use(
 );
 
 // Backend membalas error sebagai { "error": "..." }.
+// Platform (mis. Vercel) bisa membalas { "error": { "code", "message" } },
+// jadi pastikan yang dikembalikan selalu string agar aman dirender React.
 export function getApiError(err: unknown): string {
-  if (axios.isAxiosError<{ error?: string }>(err)) {
-    return err.response?.data?.error ?? "Tidak dapat terhubung ke server";
+  if (axios.isAxiosError<{ error?: unknown }>(err)) {
+    const e = err.response?.data?.error;
+    if (typeof e === "string") return e;
+    if (e && typeof e === "object" && "message" in e && typeof e.message === "string") {
+      return e.message;
+    }
+    return "Tidak dapat terhubung ke server";
   }
 
   return "Terjadi kesalahan, coba lagi";
