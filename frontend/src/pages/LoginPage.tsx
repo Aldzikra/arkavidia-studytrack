@@ -80,6 +80,13 @@ export function LoginPage() {
             Daftar
           </Link>
         </p>
+
+        <p className="text-center text-sm text-muted">
+          Mau pakai di HP?{" "}
+          <Link to="/unduh" className="font-bold">
+            Unduh aplikasi Android
+          </Link>
+        </p>
       </form>
     </AuthShell>
   );
