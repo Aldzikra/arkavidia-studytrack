@@ -27,6 +27,11 @@ func Load() (*Config, error) {
 		JWTSecret:   os.Getenv("JWT_SECRET"),
 	}
 
+	// Platform seperti Vercel mengisi PORT sendiri; lokal tanpa .env pakai 8000.
+	if config.Port == "" {
+		config.Port = "8000"
+	}
+
 	if config.JWTSecret == "" {
 		return nil, errors.New("JWT_SECRET is not set")
 	}

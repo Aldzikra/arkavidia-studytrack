@@ -55,6 +55,6 @@ func main() {
 	api.PATCH("/tugas/:id/status", middleware.AuthMiddleware(cfg), handlers.HandleUpdateStatusTugas(pool))
 	api.DELETE("/tugas/:id", middleware.AuthMiddleware(cfg), handlers.HandleDeleteTugas(pool))
 
-	log.Println("Server running on port: 8000")
+	log.Println("Server running on port:", cfg.Port)
 	router.Run(":" + cfg.Port)
 }
