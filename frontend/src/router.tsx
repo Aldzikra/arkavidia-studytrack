@@ -15,6 +15,7 @@ const RegisterPage = lazyRouteComponent(() => import("./pages/RegisterPage"), "R
 const TugasPage = lazyRouteComponent(() => import("./pages/TugasPage"), "TugasPage");
 const TugasFormPage = lazyRouteComponent(() => import("./pages/TugasFormPage"), "TugasFormPage");
 const MatkulPage = lazyRouteComponent(() => import("./pages/MatkulPage"), "MatkulPage");
+const DownloadPage = lazyRouteComponent(() => import("./pages/DownloadPage"), "DownloadPage");
 
 const rootRoute = createRootRoute({ component: Outlet });
 
@@ -37,6 +38,13 @@ const registerRoute = createRoute({
   path: "/register",
   beforeLoad: redirectIfAuthed,
   component: RegisterPage,
+});
+
+// Halaman unduh aplikasi Android: publik, bisa dibuka login atau tidak.
+const unduhRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/unduh",
+  component: DownloadPage,
 });
 
 // Semua halaman di bawah layout ini butuh token.
@@ -78,6 +86,7 @@ const matkulRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   loginRoute,
   registerRoute,
+  unduhRoute,
   appRoute.addChildren([tugasRoute, tugasBaruRoute, tugasEditRoute, matkulRoute]),
 ]);
 
