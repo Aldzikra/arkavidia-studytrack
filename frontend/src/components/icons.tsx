@@ -127,3 +127,22 @@ export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
     </Icon>
   );
 }
+
+export function DownloadIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Icon strokeWidth="2.2" {...props}>
+      <path d="M12 4v11" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M5 20h14" />
+    </Icon>
+  );
+}
+
+export function PhoneIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Icon {...props}>
+      <rect x="6" y="2.5" width="12" height="19" rx="2.5" />
+      <path d="M11 18h2" />
+    </Icon>
+  );
+}
