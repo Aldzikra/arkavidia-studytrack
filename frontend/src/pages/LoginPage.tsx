@@ -24,7 +24,7 @@ export function LoginPage() {
     try {
       const { token, user } = await login({ email, password });
       setAuth(token, user);
-      await navigate({ to: "/" });
+      await navigate({ to: "/tugas" });
     } catch (err) {
       setError(getApiError(err));
     } finally {
@@ -83,7 +83,7 @@ export function LoginPage() {
 
         <p className="text-center text-sm text-muted">
           Mau pakai di HP?{" "}
-          <Link to="/unduh" className="font-bold">
+          <Link to="/" className="font-bold">
             Unduh aplikasi Android
           </Link>
         </p>

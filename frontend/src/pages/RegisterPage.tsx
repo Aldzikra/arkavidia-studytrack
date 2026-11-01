@@ -36,7 +36,7 @@ export function RegisterPage() {
       // Backend tidak mengembalikan token saat daftar, jadi langsung masuk.
       const { token, user } = await login({ email, password });
       setAuth(token, user);
-      await navigate({ to: "/" });
+      await navigate({ to: "/tugas" });
     } catch (err) {
       setError(getApiError(err));
     } finally {
