@@ -56,7 +56,7 @@ function TugasForm({ editId, initial, matkul }: {
       if (editId) await updateTugas(editId, body);
       else await createTugas(body);
 
-      await navigate({ to: "/" });
+      await navigate({ to: "/tugas" });
     } catch (err) {
       setError(getApiError(err));
       setSaving(false);
@@ -65,7 +65,7 @@ function TugasForm({ editId, initial, matkul }: {
 
   return (
     <div className="flex flex-col gap-5 md:gap-6">
-      <Link to="/" className="inline-flex min-h-11 items-center self-start text-sm font-bold">
+      <Link to="/tugas" className="inline-flex min-h-11 items-center self-start text-sm font-bold">
         Kembali ke Daftar Tugas
       </Link>
 
@@ -113,7 +113,7 @@ function TugasForm({ editId, initial, matkul }: {
         )}
 
         <div className="flex flex-wrap justify-end gap-3 pt-1">
-          <Link to="/">
+          <Link to="/tugas">
             <Button variant="secondary" className="border-line-input text-text-2">Batal</Button>
           </Link>
           <Button type="submit" disabled={saving || matkul.length === 0}>Simpan Tugas</Button>

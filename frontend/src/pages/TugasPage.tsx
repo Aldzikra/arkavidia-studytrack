@@ -115,7 +115,7 @@ export function TugasPage() {
           Mata kuliah: <strong>{filterNama ?? `#${matkul}`}</strong>
           <button
             type="button"
-            onClick={() => void navigate({ to: "/", search: {} })}
+            onClick={() => void navigate({ to: "/tugas", search: {} })}
             className="min-h-11 cursor-pointer font-bold text-brand-600"
           >
             Hapus filter

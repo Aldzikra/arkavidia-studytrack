@@ -22,7 +22,7 @@ export function MobileTabBar() {
       className="fixed inset-x-0 bottom-0 z-10 grid grid-cols-2 gap-1 border-t border-line bg-surface px-3 pt-2 pb-5 md:hidden"
     >
       <Link
-        to="/"
+        to="/tugas"
         activeOptions={{ exact: true }}
         className={itemClass}
         activeProps={{ className: `${itemClass} ${activeClass}`, "aria-current": "page" }}

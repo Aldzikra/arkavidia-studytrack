@@ -141,7 +141,7 @@ export function MatkulPage() {
               <span className="text-sm text-muted">{m.dosen}</span>
             </div>
             <Link
-              to="/"
+              to="/tugas"
               search={{ matkul: m.id }}
               className="group inline-flex min-h-11 items-center gap-1.5 self-start text-sm font-bold underline underline-offset-4"
             >

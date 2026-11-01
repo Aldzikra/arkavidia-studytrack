@@ -23,7 +23,7 @@ const hasToken = () => useAuthStore.getState().token !== null;
 
 // Sudah masuk: tidak perlu lihat halaman masuk/daftar lagi.
 const redirectIfAuthed = () => {
-  if (hasToken()) throw redirect({ to: "/" });
+  if (hasToken()) throw redirect({ to: "/tugas" });
 };
 
 const loginRoute = createRoute({
@@ -40,10 +40,10 @@ const registerRoute = createRoute({
   component: RegisterPage,
 });
 
-// Halaman unduh aplikasi Android: publik, bisa dibuka login atau tidak.
-const unduhRoute = createRoute({
+// Landing page (publik): halaman pertama, berisi unduhan aplikasi Android.
+const landingRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/unduh",
+  path: "/",
   component: DownloadPage,
 });
 
@@ -59,7 +59,7 @@ const appRoute = createRoute({
 
 const tugasRoute = createRoute({
   getParentRoute: () => appRoute,
-  path: "/",
+  path: "/tugas",
   // ?matkul=<id> dipakai tautan "Lihat tugas" di halaman Mata Kuliah.
   validateSearch: (search: Record<string, unknown>): { matkul?: number } => {
     const id = Number(search.matkul);
@@ -86,7 +86,7 @@ const matkulRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   loginRoute,
   registerRoute,
-  unduhRoute,
+  landingRoute,
   appRoute.addChildren([tugasRoute, tugasBaruRoute, tugasEditRoute, matkulRoute]),
 ]);
 

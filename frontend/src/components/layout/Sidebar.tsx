@@ -23,7 +23,7 @@ export function Sidebar() {
 
       <div className="flex flex-col gap-1">
         <Link
-          to="/"
+          to="/tugas"
           activeOptions={{ exact: true }}
           className={navClass}
           activeProps={{ className: `${navClass} ${activeClass}`, "aria-current": "page" }}
