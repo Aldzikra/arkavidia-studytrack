@@ -2,7 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { MotionConfig, motion } from "motion/react";
 import type { Variants } from "motion/react";
 import { Logo } from "../components/Logo";
-import { AlarmIcon, AlertIcon, CheckIcon, DownloadIcon, PhoneIcon } from "../components/icons";
+import {
+  AlarmIcon,
+  AlertIcon,
+  CheckIcon,
+  DownloadIcon,
+  PhoneIcon,
+} from "../components/icons";
 import { APK_URL, APK_VERSION } from "../lib/links";
 import { useAuthStore } from "../stores/auth.store";
 
@@ -35,9 +41,24 @@ const langkah = [
 ];
 
 const contohTugas = [
-  { matkul: "Analisis Desain Data", judul: "Normalisasi Data", label: "Sisa 20 jam", kind: "mendekati" },
-  { matkul: "Basis Data", judul: "Tabel Normalisasi", label: "Terlambat 1 jam", kind: "overdue" },
-  { matkul: "Pemrograman Web", judul: "Desain ERD Toko Roti", label: "Kam, 5 Nov", kind: "normal" },
+  {
+    matkul: "Analisis Desain Data",
+    judul: "Normalisasi Data",
+    label: "Sisa 20 jam",
+    kind: "mendekati",
+  },
+  {
+    matkul: "Basis Data",
+    judul: "Tabel Normalisasi",
+    label: "Terlambat 1 jam",
+    kind: "overdue",
+  },
+  {
+    matkul: "Pemrograman Web",
+    judul: "Desain ERD Toko Roti",
+    label: "Kam, 5 Nov",
+    kind: "normal",
+  },
 ] as const;
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -140,16 +161,29 @@ export function DownloadPage() {
             transition={{
               scale: { duration: 0.6, delay: 0.5 },
               opacity: { duration: 0.6, delay: 0.5 },
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 },
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.2,
+              },
             }}
             className="absolute top-[30%] left-[46%] hidden size-14 rounded-full bg-brand-lemon-200 md:block"
           />
 
           <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 md:px-8">
-            <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               <Logo tone="light" />
             </motion.div>
-            <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               <Link
                 to={appLink}
                 className="inline-flex min-h-11 items-center rounded-control bg-white/15 px-4 text-sm font-bold text-white backdrop-blur transition-colors hover:bg-white/25"
@@ -160,7 +194,12 @@ export function DownloadPage() {
           </header>
 
           <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-5 pt-6 pb-16 md:grid-cols-[1.15fr_1fr] md:px-8">
-            <motion.div variants={stagger} initial="hidden" animate="visible" className="flex flex-col gap-6">
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col gap-6"
+            >
               <motion.span
                 variants={fadeUp}
                 className="inline-flex w-fit items-center gap-2 rounded-pill bg-white/15 px-3 py-1 text-sm font-semibold"
@@ -173,11 +212,18 @@ export function DownloadPage() {
               >
                 StudyTrack sekarang ada di HP-mu.
               </motion.h1>
-              <motion.p variants={fadeUp} className="max-w-lg text-base leading-relaxed text-white/90 md:text-lg">
-                Semua tugas kuliah dalam satu daftar. Deadline yang tinggal kurang dari 24 jam langsung naik ke
-                paling atas, jadi tidak ada yang terlewat.
+              <motion.p
+                variants={fadeUp}
+                className="max-w-lg text-base leading-relaxed text-white/90 md:text-lg"
+              >
+                Semua tugas kuliah dalam satu daftar. Deadline yang tinggal
+                kurang dari 24 jam langsung naik ke paling atas, jadi tidak ada
+                yang terlewat.
               </motion.p>
-              <motion.div variants={fadeUp} className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <motion.div
+                variants={fadeUp}
+                className="flex flex-col gap-3 sm:flex-row sm:items-center"
+              >
                 {tersedia ? (
                   <motion.a
                     href={APK_URL}
@@ -194,7 +240,9 @@ export function DownloadPage() {
                     Segera tersedia
                   </span>
                 )}
-                <span className="text-sm text-white/85">Versi {APK_VERSION} · Android · lewat Google Drive</span>
+                <span className="text-sm text-white/85">
+                  Versi {APK_VERSION} · Android · lewat Google Drive
+                </span>
               </motion.div>
             </motion.div>
 
@@ -206,7 +254,10 @@ export function DownloadPage() {
             aria-label="Gulir ke fitur"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, y: [0, 8, 0] }}
-            transition={{ opacity: { delay: 1.6 }, y: { duration: 1.8, repeat: Infinity, ease: "easeInOut" } }}
+            transition={{
+              opacity: { delay: 1.6 },
+              y: { duration: 1.8, repeat: Infinity, ease: "easeInOut" },
+            }}
             className="relative z-10 mx-auto mb-6 flex size-11 items-center justify-center rounded-full bg-white/15 text-xl"
           >
             ↓
@@ -215,8 +266,18 @@ export function DownloadPage() {
 
         <main className="mx-auto flex max-w-6xl flex-col gap-20 px-5 py-20 md:px-8">
           {/* Fitur */}
-          <motion.section id="fitur" aria-labelledby="fitur-judul" variants={stagger} {...reveal} className="flex scroll-mt-8 flex-col gap-6">
-            <motion.h2 variants={fadeUp} id="fitur-judul" className="text-3xl font-extrabold tracking-tight md:text-4xl">
+          <motion.section
+            id="fitur"
+            aria-labelledby="fitur-judul"
+            variants={stagger}
+            {...reveal}
+            className="flex scroll-mt-8 flex-col gap-6"
+          >
+            <motion.h2
+              variants={fadeUp}
+              id="fitur-judul"
+              className="text-3xl font-extrabold tracking-tight md:text-4xl"
+            >
               Kenapa pakai StudyTrack
             </motion.h2>
             <div className="grid gap-5 md:grid-cols-3">
@@ -227,11 +288,15 @@ export function DownloadPage() {
                   whileHover={{ y: -6 }}
                   className="flex flex-col gap-3 rounded-card border border-line bg-surface p-7 transition-shadow hover:shadow-[0_20px_40px_-20px_rgba(35,115,244,0.35)]"
                 >
-                  <div className={`flex size-12 items-center justify-center rounded-control ${tone}`}>
+                  <div
+                    className={`flex size-12 items-center justify-center rounded-control ${tone}`}
+                  >
                     <Icon width={24} height={24} />
                   </div>
                   <h3 className="text-lg font-bold">{judul}</h3>
-                  <p className="text-[15px] leading-relaxed text-muted">{isi}</p>
+                  <p className="text-[15px] leading-relaxed text-muted">
+                    {isi}
+                  </p>
                 </motion.article>
               ))}
             </div>
@@ -245,12 +310,15 @@ export function DownloadPage() {
             className="grid gap-8 rounded-card border border-line bg-surface p-7 md:grid-cols-[1fr_1.4fr] md:p-12"
           >
             <motion.div variants={fadeUp} className="flex flex-col gap-3">
-              <h2 id="pasang" className="text-3xl font-extrabold tracking-tight">
+              <h2
+                id="pasang"
+                className="text-3xl font-extrabold tracking-tight"
+              >
                 Cara memasang
               </h2>
               <p className="text-[15px] leading-relaxed text-muted">
-                APK dibagikan langsung lewat Google Drive, belum melalui Play Store. Android akan meminta izin sekali
-                sebelum memasang.
+                APK dibagikan langsung lewat Google Drive, belum melalui Play
+                Store. Android akan meminta izin sekali sebelum memasang.
               </p>
             </motion.div>
             <ol className="flex flex-col gap-5">
@@ -271,7 +339,9 @@ export function DownloadPage() {
             {...reveal}
             className="flex flex-col items-center gap-5 rounded-[28px] bg-ink px-6 py-14 text-center text-white"
           >
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Siap pantau tugasmu?</h2>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+              Siap pantau tugasmu?
+            </h2>
             <div className="flex flex-col gap-3 sm:flex-row">
               {tersedia && (
                 <motion.a
