@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Logo } from "../components/Logo";
 import { AlarmIcon, AlertIcon, CheckIcon, DownloadIcon, PhoneIcon } from "../components/icons";
 import { APK_URL, APK_VERSION } from "../lib/links";
+import { useAuthStore } from "../stores/auth.store";
 
 const fitur = [
   {
@@ -33,16 +34,18 @@ const langkah = [
 
 export function DownloadPage() {
   const tersedia = APK_URL.length > 0;
+  const loggedIn = useAuthStore((s) => s.token !== null);
+  const appLink = loggedIn ? "/tugas" : "/login";
 
   return (
     <div className="min-h-screen bg-page text-ink">
       <header className="mx-auto flex max-w-5xl items-center justify-between px-5 py-5 md:px-8">
         <Logo />
         <Link
-          to="/login"
+          to={appLink}
           className="inline-flex min-h-11 items-center rounded-control px-4 text-sm font-bold text-brand-600 hover:bg-brand-50"
         >
-          Masuk di web
+          {loggedIn ? "Buka aplikasi" : "Masuk di web"}
         </Link>
       </header>
 
@@ -133,7 +136,7 @@ export function DownloadPage() {
 
         <p className="text-center text-sm text-muted">
           Pakai laptop?{" "}
-          <Link to="/login" className="font-bold">
+          <Link to={appLink} className="font-bold">
             Buka StudyTrack versi web
           </Link>
         </p>
