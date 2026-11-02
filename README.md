@@ -51,7 +51,7 @@ JWT_SECRET=<string acak panjang>
 ```
 
 - `PORT=8000` dipakai agar cocok dengan proxy dev frontend.
-- Buat `JWT_SECRET` dengan: `openssl rand -base64 32`. Jangan pakai nilai contoh.
+- Buat `JWT_SECRET` dengan: `openssl rand -base64 32`.
 
 Jalankan migrasi dan backend:
 
